@@ -15,13 +15,13 @@ public:
     }
 
     void log(const std::string& message) {
-        std::lock_guard<std::mutex> lock(log_mutex_);
+        std::lock_guard<std::mutex> lock(logMutex_);
         logfile_ << message << std::endl;
     }
 
 private:
     std::ofstream logfile_;
-    std::mutex log_mutex_;
+    std::mutex logMutex_;
 };
 
 int main() {
